@@ -1,0 +1,634 @@
+/* =========================
+   DASHBOARD PAGE
+========================= */
+
+.dashboard-page {
+    min-height: 100vh;
+    background: #0f0f13;
+    color: #e8e8f0;
+    padding: 32px 40px 60px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.dashboard-title-group {
+    text-align: center;
+    flex: 1;
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff4081, #7c4dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 4px;
+    letter-spacing: -0.5px;
+}
+
+.dashboard-subtitle {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+}
+
+.dashboard-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.dashboard-back-btn:hover {
+    background: rgba(255, 64, 129, 0.12);
+    border-color: #ff4081;
+    color: #ff4081;
+}
+
+.dashboard-refresh-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.3s;
+}
+
+.dashboard-refresh-btn:hover {
+    background: rgba(124, 77, 255, 0.15);
+    border-color: #7c4dff;
+    color: #7c4dff;
+    transform: rotate(180deg);
+}
+
+
+/* =========================
+   LOADING & ERROR
+========================= */
+
+.dashboard-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 80px 0;
+    color: #888;
+}
+
+.dashboard-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 64, 129, 0.2);
+    border-top-color: #ff4081;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.dashboard-error {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 77, 77, 0.1);
+    border: 1px solid rgba(255, 77, 77, 0.3);
+    color: #ff6b6b;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+
+/* =========================
+   CONTENT WRAPPER
+========================= */
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+
+/* =========================
+   STAT CARDS ROW
+========================= */
+
+.dashboard-cards-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.dash-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: #1a1a24;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dash-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.dash-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dash-card--users .dash-card-icon {
+    background: rgba(255, 64, 129, 0.15);
+    color: #ff4081;
+}
+
+.dash-card--requests .dash-card-icon {
+    background: rgba(124, 77, 255, 0.15);
+    color: #7c4dff;
+}
+
+.dash-card--models .dash-card-icon {
+    background: rgba(0, 188, 212, 0.15);
+    color: #00bcd4;
+}
+
+.dash-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dash-card-label {
+    font-size: 0.78rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+}
+
+.dash-card-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f0f0f8;
+    line-height: 1;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.dashboard-section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #c0c0d0;
+    margin: 0;
+    padding-left: 4px;
+    border-left: 3px solid #ff4081;
+    padding-left: 12px;
+}
+
+
+/* =========================
+   MODELS GRID (chart + donut)
+========================= */
+
+.dashboard-models-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 20px;
+}
+
+@media (max-width: 860px) {
+    .dashboard-models-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-panel {
+    background: #1a1a24;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.panel-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin: 0 0 24px;
+}
+
+
+/* =========================
+   BAR CHART
+========================= */
+
+.model-bar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.model-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.model-bar-label {
+    font-size: 0.82rem;
+    color: #c0c0d0;
+    width: 110px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.model-bar-track {
+    flex: 1;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.model-bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    min-width: 4px;
+    animation: growBar 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes growBar {
+    from { width: 0 !important; }
+}
+
+.model-bar-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 72px;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.model-bar-count {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e0e0f0;
+}
+
+.model-bar-pct {
+    font-size: 0.75rem;
+    color: #666;
+    min-width: 32px;
+    text-align: right;
+}
+
+
+/* =========================
+   DONUT CHART
+========================= */
+
+.dashboard-panel--donut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.donut-wrapper {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px;
+}
+
+.donut-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.donut-segment {
+    transition: opacity 0.2s;
+    animation: fadeInSegment 0.5s ease both;
+}
+
+@keyframes fadeInSegment {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.donut-center-num {
+    font-size: 18px;
+    font-weight: 700;
+    fill: #f0f0f8;
+}
+
+.donut-center-label {
+    font-size: 9px;
+    fill: #888;
+}
+
+.donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.donut-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.donut-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.donut-legend-label {
+    font-size: 0.82rem;
+    color: #c0c0d0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================
+   PER-MODEL STAT CARDS
+========================= */
+
+.model-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.model-stat-card {
+    background: #1a1a24;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 22px 20px 18px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.model-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent, #ff4081);
+    border-radius: 14px 14px 0 0;
+}
+
+.model-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.model-stat-card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.model-stat-badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.model-stat-name {
+    font-size: 0.82rem;
+    color: #c0c0d0;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.model-stat-count {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #f0f0f8;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.model-stat-sublabel {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 14px;
+}
+
+.model-stat-share-bar {
+    height: 5px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.model-stat-share-fill {
+    height: 100%;
+    border-radius: 99px;
+    animation: growBar 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.model-stat-pct {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+    .dashboard-page {
+        padding: 20px 16px 40px;
+    }
+
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .dash-card-value {
+        font-size: 1.6rem;
+    }
+
+    .model-bar-label {
+        width: 80px;
+    }
+}
+
+
+/* =========================
+   MODEL HIGHLIGHT CARD
+========================= */
+
+.model-highlight-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #1a1a24;
+    border: 1px solid rgba(124, 77, 255, 0.3);
+    border-radius: 16px;
+    padding: 28px 32px;
+    overflow: hidden;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.model-highlight-card:hover {
+    box-shadow: 0 0 40px rgba(124, 77, 255, 0.15);
+    border-color: rgba(124, 77, 255, 0.6);
+}
+
+.model-highlight-glow {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(124, 77, 255, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.model-highlight-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #7c4dff, #ff4081);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.model-highlight-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.model-highlight-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #f0f0f8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.model-highlight-sub {
+    font-size: 0.82rem;
+    color: #666;
+}
+
+.model-highlight-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.82rem;
+    color: #4caf50;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.model-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    box-shadow: 0 0 6px #4caf50;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* Active Model card value — smaller font so long model names fit */
+.dash-card-value--model {
+    font-size: 1rem !important;
+    font-weight: 600;
+    color: #c0b0ff;
+    word-break: break-all;
+}

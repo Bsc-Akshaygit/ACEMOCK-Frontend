@@ -1,0 +1,36 @@
+.container{
+    width: 100%;
+    height: 80vh;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+.first-box{
+    width: 80%;
+    height: 89vh;
+}
+.second-box{
+    width: 95%;
+    height: 89vh;
+}
+.first-box img{
+    position: relative;
+    top: 140px;
+    align-items: center;
+    width: 60%;
+    height: 50%;
+    box-shadow: 4px 10px 100px #ff4081;
+}
+.second-box h3{
+    font-size: 3rem;
+}
+.second-box p{
+    font-size: 1.5rem;
+}
+.copy-right{
+    font-size: 18px;
+    color: yellow;
+    text-align: center;
+}
